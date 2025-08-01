@@ -1,0 +1,164 @@
+**Project Title:** Document Expiry Tracker for Internal Use
+
+**Organization:** NLC India Ltd.
+
+**Department:** Computer Services Department, Corporate Office
+
+**Intern:** PARAMAGURU S
+
+**Duration:** 2 Weeks
+
+**Technology Stack:**
+
+* Frontend: ReactJS, HTML5, CSS3
+* Backend: Flask (Python)
+* Database: MySQL
+* Security: JWT Authentication, Password Hashing (Werkzeug)
+
+---
+
+### 1. Introduction
+
+The Document Expiry Tracker is a secure internal web application designed to help employees and administrators at NLC India Ltd. track and manage expiry-sensitive documents. The application ensures that critical documents are not overlooked or missed through status updates and alert mechanisms.
+
+---
+
+### 2. Objectives
+
+* Enable employees to upload and track documents with expiry dates.
+* Alert users of upcoming expiry deadlines.
+* Allow administrators to manage visibility and monitor system usage.
+* Ensure secure user authentication and password management.
+
+---
+
+### 3. Features
+
+#### 3.1 Authentication & Security
+
+* User login with hashed passwords (stored securely using Werkzeug's `generate_password_hash`).
+* JWT-based session management.
+* Role-based dashboard access (Admin/User).
+* Limited login attempts to prevent brute-force attacks.
+
+#### 3.2 Document Upload
+
+* Upload files (PDF, DOCX, JPG, PNG) with expiry metadata.
+* Store documents on the server (`uploads/` folder) and metadata in MySQL.
+* Visibility toggle by admin to restrict document access.
+
+#### 3.3 Document Dashboard
+
+* Admin Dashboard:
+
+  * View all documents.
+  * Toggle visibility.
+  * Filter by status (Active/Expired).
+  * View summary cards (counts by status).
+* User Dashboard:
+
+  * View only visible documents.
+  * See status badges.
+
+#### 3.4 Alerts Page
+
+* View documents expiring within 7 days.
+* Separate view for admin and users.
+
+#### 3.5 Password Management
+
+* Authenticated users can change their password.
+* Password change recorded in password history.
+
+#### 3.6 Login Tracking
+
+* Track login attempts with IP and timestamp.
+* Limit login attempts per IP per day to 5.
+
+---
+
+### 4. Database Tables
+
+* `users(id, username, password_hash, role)`
+* `login_attempts(id, user_id, ip_address, attempt_time, successful)`
+* `documents(id, user_id, name, description, expiry_date, visible, status)`
+* `password_history(id, user_id, password_hash, changed_at)`
+
+---
+
+### 5. Deployment & Setup
+
+#### Backend:
+
+* **Required Python Packages:**
+
+  ```bash
+  pip install flask flask-cors mysql-connector-python werkzeug pyjwt
+  ```
+* **Import Statements Used:**
+
+  ```python
+  from flask import Flask, request, jsonify
+  from flask_cors import CORS
+  from werkzeug.security import generate_password_hash, check_password_hash
+  from werkzeug.utils import secure_filename
+  import mysql.connector
+  import jwt
+  import os
+  from datetime import date, datetime, timedelta
+  ```
+* Run `auth.py` to launch the backend on `localhost:5000`.
+* Set up MySQL database `nlc_intern` and initialize using the provided `initialize_database()` function.
+
+#### Frontend:
+
+* Built using ReactJS.
+* Install dependencies and run with:
+
+  ```bash
+  npm install
+  npm start
+  ```
+* **Key React Libraries Used:**
+
+  * `react-router-dom`
+  * `axios` (optional for API calls)
+* Routes:
+
+  * `/` — Home
+  * `/login` — Login Page
+  * `/dashboard` — Redirects to Admin/User Dashboard based on token
+  * `/alerts`, `/upload` — Additional feature routes
+
+---
+
+### 6. Learnings & Outcome
+
+* Developed full-stack authentication system.
+* Applied secure practices for password storage and login handling.
+* Used JWT for token-based sessions.
+* Learned React routing and protected component rendering.
+* Designed a usable and responsive UI using CSS custom theming.
+
+---
+
+### 8. Conclusion
+
+The Document Expiry Tracker enhances internal efficiency and document compliance by providing a secure, user-friendly interface for employees and admins. The project showcases the practical implementation of full-stack web development and enterprise-grade practices in real-world environments.
+
+---
+
+### 9. Future Scope
+
+* Email notification integration for expiry alerts.
+* Admin report export features (PDF/Excel).
+* Bulk upload via CSV.
+* Department-level document categorization.
+* OTP-based password reset.
+
+---
+
+**Prepared by:** ParamaGuru
+**Reviewed by:** Mr. Harsha Dy.Manager Internship Guide — Computer Services Dept, NLC India Ltd.
+
+---

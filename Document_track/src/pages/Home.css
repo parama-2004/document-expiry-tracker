@@ -1,0 +1,114 @@
+/* NLC Color Scheme */
+:root {
+  --nlc-blue: #1F3C88;
+  --nlc-light-blue: #3A6EA5;
+  --nlc-orange: #FFA500;
+  --nlc-dark: #0A1A30;
+  --nlc-white: #FFFFFF;
+  --nlc-offwhite: #F5F5F5;
+}
+
+.home-container {
+  position: relative;
+  min-height: 100vh;
+  color: var(--nlc-white);
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.overlay-content {
+  position: relative;
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(31, 60, 136, 0.9), transparent);
+}
+
+.overlay-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--nlc-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+  font-size: 1.4rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.info-section {
+  background-color: rgba(10, 26, 48, 0.9);
+  padding: 4rem 2rem;
+  margin-top: -2rem;
+}
+
+.info-section section {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid var(--nlc-orange);
+}
+
+.info-section h2 {
+  color: var(--nlc-orange);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.info-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.info-section ul {
+  padding-left: 1.5rem;
+}
+
+.info-section li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .overlay-content {
+    padding: 6rem 1rem 3rem;
+  }
+  
+  .overlay-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+  }
+  
+  .info-section {
+    padding: 2rem 1rem;
+  }
+  
+  .info-section section {
+    padding: 1.5rem;
+  }
+  
+  .info-section h2 {
+    font-size: 1.5rem;
+  }
+}

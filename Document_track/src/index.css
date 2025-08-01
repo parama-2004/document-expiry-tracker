@@ -1,0 +1,155 @@
+/* NLC India Ltd Color Scheme */
+:root {
+  --nlc-primary: #1F3C88;   /* NLC Dark Blue */
+  --nlc-secondary: #3A6EA5;  /* NLC Medium Blue */
+  --nlc-accent: #FFA500;     /* NLC Orange */
+  --nlc-light: #E8F1F5;      /* NLC Light Blue */
+  --nlc-dark: #0A1A30;       /* NLC Navy */
+  --nlc-white: #FFFFFF;
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--nlc-light);
+  color: var(--nlc-dark);
+}
+
+/* Navbar Styles */
+.Navbar {
+  background: linear-gradient(135deg, var(--nlc-primary), var(--nlc-secondary));
+  color: var(--nlc-white);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid var(--nlc-accent);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nlc-logo {
+  height: 50px;
+  width: auto;
+}
+
+.Navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.Navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.Navbar li {
+  position: relative;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.Navbar li:hover {
+  color: var(--nlc-accent);
+}
+
+.Navbar li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--nlc-accent);
+  transition: width 0.3s ease;
+}
+
+.Navbar li:hover::after {
+  width: 100%;
+}
+
+.login-btn {
+  background-color: var(--nlc-accent);
+  color: var(--nlc-dark);
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--nlc-white);
+  color: var(--nlc-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.login-btn:active {
+  transform: scale(0.97);
+}
+
+/* Main Content Area */
+.nlc-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--nlc-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  min-height: 80vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Navbar {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .Navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .header-left {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nlc-logo {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+.logout-btn {
+  color: var(--nlc-accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: var(--nlc-white);
+}
+
+.user-info {
+  font-weight: 500;
+  color: var(--nlc-light);
+  cursor: pointer;
+}
