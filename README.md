@@ -1,4 +1,4 @@
-**Document Expiry Tracker**
+## Document Expiry Tracker
 
 A full-stack web application for internal use to manage and monitor document expiration dates.
 
